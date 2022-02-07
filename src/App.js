@@ -1,4 +1,5 @@
 import './App.css';
+import { useState } from 'react';
 import useForm from './Hooks/useForm';
 import Input from './Components/Input'
 import Card from './Components/Card';
@@ -6,13 +7,25 @@ import Container from './Components/Container';
 import Button from './Components/Button'
 
 function App(){
-  const [form, handleChange]= useForm({name:'', lastname:'', email:''})
+  const [users, setUsers] = useState([])
+  const [form, handleChange]= useForm({
+    name:'', 
+    lastname:'', 
+    email:''
+  })
+  const submit = e =>{
+    e.preventDefault()
+    setUsers([
+      ...users,
+      form,
+    ])
+  }
   return(
     <div>
     <Container>
       <Card>  
         <div style={{padding:20}}>
-          <form>
+          <form onSubmit={submit}>
             <Input 
                 label='Name' 
                 name='name' 
