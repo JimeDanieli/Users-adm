@@ -22,7 +22,7 @@ function App(){
     reset()
   }
   return(
-    <div>
+    <div style={{marginTop: '15%'}}>
     <Container>
       <Card>  
         <div style={{padding:20}}>
@@ -31,17 +31,20 @@ function App(){
                 label='Name' 
                 name='name' 
                 value={form.name} 
-                onChange={handleChange} />
+                onChange={handleChange} 
+                placeholder= 'Name'/>
             <Input 
                 label='Last name' 
                 name='lastname' 
                 value={form.lastname} 
-                onChange={handleChange} />
+                onChange={handleChange}
+                placeholder= 'Last name' />
             <Input 
                 label='E-mail' 
                 name='email' 
                 value={form.email} 
-                onChange={handleChange} />
+                onChange={handleChange} 
+                placeholder= 'E-mail'/>
             <Button>Send</Button>
           </form>
         </div>
