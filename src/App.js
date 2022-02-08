@@ -8,7 +8,7 @@ import Button from './Components/Button'
 
 function App(){
   const [users, setUsers] = useState([])
-  const [form, handleChange]= useForm({
+  const [form, handleChange, reset]= useForm({
     name:'', 
     lastname:'', 
     email:''
@@ -19,6 +19,7 @@ function App(){
       ...users,
       form,
     ])
+    reset()
   }
   return(
     <div>
@@ -44,6 +45,12 @@ function App(){
             <Button>Send</Button>
           </form>
         </div>
+        </Card>
+        <Card>
+          <ul>
+            {users.map(e=>
+              <li key={e.email}>{`${e.name} ${e.lastname} ${e.email}`} </li>)}
+          </ul>
         </Card>
       </Container>
     </div>
